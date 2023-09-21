@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"testing"
-
+	"strings"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/cloudnationhq/az-cn-module-tf-vmss/shared"
@@ -70,5 +70,18 @@ func verifyVmss(t *testing.T, details *vmssDetails, vmss *armcompute.VirtualMach
 		details.Name,
 		*vmss.Name,
 		"VMSS name does not match expected value",
+	)
+
+	require.Equal(
+		t,
+		"Succeeded",
+		string(*vmss.Properties.ProvisioningState),
+		"VMSS provisioning state it not Succeeded",
+	)
+
+	require.True(
+		t,
+		strings.HasPrefix(details.Name, "vmss"),
+		"VMSS name does not start with the right abbreviation",
 	)
 }
