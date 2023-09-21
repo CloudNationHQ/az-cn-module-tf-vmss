@@ -27,7 +27,7 @@ func GetTerraformOptions(terraformDir string) *terraform.Options {
 }
 
 func Cleanup(t *testing.T, tfOpts *terraform.Options) {
-	terraform.Destroy(t, tfOpts)
+	SequentialDestroy(t, tfOpts)
 	CleanupFiles(t, tfOpts.TerraformDir)
 }
 
@@ -46,4 +46,9 @@ func CleanupFiles(t *testing.T, dir string) {
 			}
 		}
 	}
+}
+
+func SequentialDestroy(t *testing.T, tfOpts *terraform.Options) {
+	tfOpts.Parallelism = 1
+	terraform.Destroy(t, tfOpts)
 }

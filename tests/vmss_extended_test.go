@@ -14,23 +14,22 @@ import (
 type vmssDetails struct {
 	ResourceGroupName string
 	Name              string
-	InstanceId        string
 }
 
 type ClientSetup struct {
 	SubscriptionID string
-	VmssClient     *armcompute.VirtualMachineScaleSetVMsClient
+	VmssClient     *armcompute.VirtualMachineScaleSetsClient
 }
 
-func (details *vmssDetails) GetVmss(t *testing.T,client *armcompute.VirtualMachineScaleSetVMsClient) *armcompute.VirtualMachineScaleSetVM {
-	resp, err := client.Get(context.Background(), details.ResourceGroupName, details.Name, details.InstanceId, nil)
+func (details *vmssDetails) GetVmss(t *testing.T,client *armcompute.VirtualMachineScaleSetsClient) *armcompute.VirtualMachineScaleSet{
+	resp, err := client.Get(context.Background(), details.ResourceGroupName, details.Name, nil)
 	require.NoError(t, err, "Failed to get VMSS")
-	return &resp.VirtualMachineScaleSetVM
+	return &resp.VirtualMachineScaleSet
 }
 
 func (setup *ClientSetup) InitializeVmssClient(t *testing.T, cred *azidentity.DefaultAzureCredential) {
 	var err error
-	setup.VmssClient, err = armcompute.NewVirtualMachineScaleSetVMsClient(setup.SubscriptionID, cred, nil)
+	setup.VmssClient, err = armcompute.NewVirtualMachineScaleSetsClient(setup.SubscriptionID, cred, nil)
 	require.NoError(t, err, "Failed to create VMSS client")
 }
 
@@ -63,6 +62,13 @@ func TestVmss(t *testing.T) {
 	})
 }
 
-func verifyVmss(t *testing.T, details *vmssDetails, vmss *armcompute.VirtualMachineScaleSetVM) {
+func verifyVmss(t *testing.T, details *vmssDetails, vmss *armcompute.VirtualMachineScaleSet) {
+	t.Helper()
 
+	require.Equal(
+		t,
+		details.Name,
+		*vmss.Name,
+		"VMSS name does not match expected value",
+	)
 }
