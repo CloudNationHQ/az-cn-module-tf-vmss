@@ -229,18 +229,10 @@ Module is maintained by [these awesome contributors](https://github.com/cloudnat
 
 ## License
 
-<<<<<<< HEAD
 MIT Licensed. See [LICENSE](https://github.com/cloudnationhq/az-cn-module-tf-vmss/blob/main/LICENSE) for full details.
-=======
-MIT Licensed. See [LICENSE](https://github.com/cloudnationhq/az-cn-module-tf-kv/blob/main/LICENSE) for full details.
->>>>>>> 08930e6e30b9259c1e7d7ca3ed056ecf99234e44
 
 ## Reference
 
 - [Documentation](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/)
 - [Rest Api](https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets)
 - [Rest Api Specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2023-03-01/virtualMachineScaleSet.json)
-<<<<<<< HEAD
-=======
-
->>>>>>> 08930e6e30b9259c1e7d7ca3ed056ecf99234e44
