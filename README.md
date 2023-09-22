@@ -205,13 +205,13 @@ module "vmss" {
 
 ## Testing
 
-The github repository utilizes a Makefile to conduct tests to evaluate and validate different configurations of the module.
-
 Before initiating the tests, please ensure that both go and terraform are properly installed on your system.
 
-The [Makefile](Makefile) includes two distinct variations of tests. The first one is designed to validate different usage scenarios of the module. These tests are executed by specifying the TF_PATH environment variable, which determines the different usages located in the example directory. To run Deployment Tests, use the command ```make test TF_PATH=<usage>```, replacing <usage> with the desired test scenario, such as simple.
+The [Makefile](Makefile) includes two distinct variations of tests. The first one is designed to validate different usage scenarios of the module. These tests are executed by specifying the TF_PATH environment variable, which determines the different usages located in the example directory.
 
-The second variation is known as a extended test. This one performs additional validations and act as the default test suite for the module within the GitHub workflow. It can be executed without specifying any additional parameters, using the command ```make test_extended```.
+To run Deployment Tests, use the command: make test TF_PATH=<usage>, replacing <usage> with the desired test scenario, such as simple.
+
+The second variation is known as a extended test. This one performs additional checks and act as the default test suite for the module within the gitHub workflow. It can be executed without specifying any additional parameters, using the command make test_extended.
 
 Both variations are designed to be executed locally and are also integrated into the github workflow.
 
