@@ -209,7 +209,7 @@ Before initiating the tests, please ensure that both go and terraform are proper
 
 The [Makefile](Makefile) includes two distinct variations of tests. The first one is designed to validate different usage scenarios of the module. These tests are executed by specifying the TF_PATH environment variable, which determines the different usages located in the example directory.
 
-To run deployment tests, use the command ```make test TF_PATH=simple```, replacing simple with the desired usage.
+To run this test, use the command ```make test TF_PATH=simple```, and replace simple with the desired usage.
 
 The second variation is known as a extended test. This one performs additional checks and act as the default test for the module within the github workflow. It can be executed without specifying any additional parameters, using the command ```make test_extended```.
 
