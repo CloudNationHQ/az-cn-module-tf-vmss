@@ -205,9 +205,9 @@ module "vmss" {
 
 ## Testing
 
-Before initiating the tests, please ensure that both go and terraform are properly installed on your system.
+As a prerequirement, please ensure that both go and terraform are properly installed on your system.
 
-The [Makefile](Makefile) includes two distinct variations of tests. The first one is designed to validate different usage scenarios of the module. These tests are executed by specifying the TF_PATH environment variable, which determines the different usages located in the example directory.
+The [Makefile](Makefile) includes two distinct variations of tests. The first one is designed to deploy different usage scenarios of the module. These tests are executed by specifying the TF_PATH environment variable, which determines the different usages located in the example directory.
 
 To execute this test, input the command ```make test TF_PATH=simple```, substituting simple with the specific usage you wish to test.
 
