@@ -57,7 +57,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   source_image_reference {
     publisher = try(var.vmss.image.publisher, "Canonical")
     offer     = try(var.vmss.image.offer, "UbuntuServer")
-    sku       = try(var.vmss.image.sku, "18.04-LTS")
+    sku       = try(var.vmss.image.sku, "20.04-LTS")
     version   = try(var.vmss.image.version, "latest")
   }
 
