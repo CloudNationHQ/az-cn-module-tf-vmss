@@ -59,7 +59,7 @@ module "kv" {
 }
 
 module "scaleset" {
-  source = "../../"
+  source = "github.com/CloudNationHQ/az-cn-module-tf-vmss"
 
   vmss = {
     name           = module.naming.virtual_machine_scale_set.name
