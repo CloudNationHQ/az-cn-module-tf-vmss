@@ -2,14 +2,14 @@ locals {
   interfaces = flatten([
     for interface_key, nic in var.vmss.interfaces : {
 
-      interface_key                 = interface_key
-      nic_name                      = "nic-${interface_key}"
-      primary                       = try(nic.primary, false)
-      ipconf_name                   = "ipconf-${interface_key}"
-      dns_servers                   = try(nic.dns_servers, [])
-      enable_accelerated_networking = try(nic.enable_accelerated_networking, false)
-      enable_ip_forwarding          = try(nic.enable_ip_forwarding, false)
-      subnet_id                     = nic.subnet
+      interface_key                                = interface_key
+      nic_name                                     = "nic-${interface_key}"
+      primary                                      = try(nic.primary, false)
+      ipconf_name                                  = "ipconf-${interface_key}"
+      dns_servers                                  = try(nic.dns_servers, [])
+      enable_accelerated_networking                = try(nic.enable_accelerated_networking, false)
+      enable_ip_forwarding                         = try(nic.enable_ip_forwarding, false)
+      subnet_id                                    = nic.subnet
       application_gateway_backend_address_pool_ids = try(nic.application_gateway_backend_address_pool_ids, [])
       application_security_group_ids               = try(nic.application_security_group_ids, [])
       load_balancer_backend_address_pool_ids       = try(nic.load_balancer_backend_address_pool_ids, [])
