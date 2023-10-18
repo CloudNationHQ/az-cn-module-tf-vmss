@@ -82,6 +82,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
         name      = network_interface.value.ipconf_name
         primary   = network_interface.value.primary
         subnet_id = network_interface.value.subnet_id
+        application_gateway_backend_address_pool_ids = network_interface.value.application_gateway_backend_address_pool_ids
+        application_security_group_ids               = network_interface.value.application_security_group_ids
+        load_balancer_backend_address_pool_ids       = network_interface.value.load_balancer_backend_address_pool_ids
+        load_balancer_inbound_nat_rules_ids          = network_interface.value.load_balancer_inbound_nat_rules_ids
       }
     }
   }

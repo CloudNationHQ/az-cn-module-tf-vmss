@@ -10,6 +10,10 @@ locals {
       enable_accelerated_networking = try(nic.enable_accelerated_networking, false)
       enable_ip_forwarding          = try(nic.enable_ip_forwarding, false)
       subnet_id                     = nic.subnet
+      application_gateway_backend_address_pool_ids = try(nic.application_gateway_backend_address_pool_ids, [])
+      application_security_group_ids               = try(nic.application_security_group_ids, [])
+      load_balancer_backend_address_pool_ids       = try(nic.load_balancer_backend_address_pool_ids, [])
+      load_balancer_inbound_nat_rules_ids          = try(nic.load_balancer_inbound_nat_rules_ids, [])
     }
   ])
 }
